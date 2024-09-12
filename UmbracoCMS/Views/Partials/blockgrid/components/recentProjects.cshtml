@@ -1,0 +1,29 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var projectItems = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("project");
+}
+
+@if (projectItems != null) 
+{
+    <div class="projects">
+        
+            @foreach (var item in projectItems)
+            {
+            <div class="project-container">
+                var projectImage = item?.Content.Value<IPublishedContent>("projectImage")?.Url();
+                var projectImageAltText = item?.Content.Value<string>("projectImageAltText") ?? "project image item";
+                var projectDescription = item?.Content.Value<string>("projectDescription") ?? string.Empty;
+                var projectService = item.Content.Value<string>("projectService");
+
+                <img src="@projectImage" alt="@projectImageAltText" >
+                <div class="project-info">
+                    <p>@projectDescription</p>
+                    <p>@projectService</p>
+                </div>
+            </div>
+            }
+       
+    </div>
+}

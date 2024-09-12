@@ -1,0 +1,90 @@
+#success-stories-section {
+    background-color: var(--color-primary);
+    position: relative;
+    padding-top: 40px;
+    height: 500px;
+
+    @include tablet {
+        padding-top: 60px;
+        height: 600px;
+    }
+
+    @include desktop {
+        margin-bottom: 80px;
+        height: 650px;
+    }
+
+    .dot-img {
+        display: block;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .container {
+        padding-top: 20px;
+        //padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @include desktop {
+            //top: 30%;
+            //left: 50%;
+            //transform: translate(-50%, -50%);
+        }
+
+        h3 {
+            color: var(--color-light);
+        }
+
+        #story-numbers {
+            @include desktop {
+                display: grid;
+                grid-auto-rows: 1fr 1fr 1fr;
+                //flex-direction: row;
+                //justify-content: space-between;
+                width: 1000px;
+            }
+
+
+            #numbers-box {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 300px;
+                text-align: center;
+
+                h2 {
+                    color: var(--color-secondary);
+                }
+
+                p {
+                    color: var(--color-light);
+                    margin: 0 auto;
+                    text-align: center;
+                    width: 60%;
+                }
+            }
+        }
+    }
+
+    img {
+        display: none;
+
+        @include desktop {
+            display: block;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            top: 50%;
+            left: 70%;
+            transform: translate(0, -10%);
+        }
+    }
+}

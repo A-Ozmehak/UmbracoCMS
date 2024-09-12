@@ -1,0 +1,22 @@
+.tags-container {
+    margin-top: 30px;
+    
+    @include desktop {
+        border-left: 1px solid var(--color-secondary);
+        padding: 20px;
+    }
+ 
+
+    .tags {
+        margin-bottom: 30px;
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            padding: 10px 10px;
+            border: 1px solid var(--color-primary);
+            border-radius: 20px;
+            margin: 5px;
+        }
+    }
+}

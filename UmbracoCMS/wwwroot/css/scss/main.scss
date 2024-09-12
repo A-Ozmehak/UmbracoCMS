@@ -1,0 +1,38 @@
+@import "./mixins/mixins";
+
+@import "./misc/base";
+
+@import "./components/wrapper";
+@import "./components/container";
+@import "./components/links";
+@import "./components/buttons";
+@import "./components/typography";
+@import "./components/input";
+@import "./components/select";
+
+@import "./sections/helpBox";
+@import "./sections/tags";
+@import "./sections/contactInfoSection";
+@import "./sections/iconSection";
+@import "./sections/titleSection";
+@import "./sections/servicesSection";
+
+@import "./sections/header";
+@import "./sections/home/heroSection";
+@import "./sections/home/aboutSection";
+@import "./sections/home/storySection";
+@import "./sections/home/successStoriesSection";
+@import "./sections/home/projectsSection";
+@import "./sections/footer";
+
+@import "./sections/about/companyInfoSection";
+@import "./sections/about/reviewSection";
+@import "./sections/about/expertsSection";
+
+
+@import "./sections/services/mainContent";
+
+@import "./sections/riskManagement/mainContent";
+@import "./sections/ourProjects/mainContent";
+@import "./sections/detailProject/mainContent";
+@import "./sections/contact/mainContent";

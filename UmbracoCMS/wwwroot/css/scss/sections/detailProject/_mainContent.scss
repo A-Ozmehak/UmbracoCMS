@@ -1,0 +1,120 @@
+.project-details {
+    margin-top: 40px;
+
+    @include desktop {
+        margin-top: 100px;
+    }
+
+    .container {
+
+        @include desktop {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 50px;
+        }
+        .project-info {
+
+            .date {
+                opacity: 0.6;
+                i {
+                    margin-right: 5px;
+                }
+            }
+
+            .bold-text {
+                font-weight: 600;
+            }
+
+            ul {
+                font-weight: 600;
+
+                li {
+                    font-weight: 400;
+                }
+            }
+
+            img {
+                margin-bottom: 20px;
+                width: 100%;
+            }
+
+            .image-text-box {
+                display: flex;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                gap: 20px;
+            }
+
+            .project-tags {
+                display: flex;
+
+                p {
+                    margin-right: 10px;
+                }
+
+                a {
+                    border: 1px solid var(--color-secondary);
+                    padding: 5px 10px;
+                    text-align: center;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    color: var(--color-primary);
+                    background-color: var(--color-secondary);
+                    margin-right: 8px;
+                }
+            }
+        }
+
+        .side-content {
+            @include desktop {
+                border-left: 1px solid var(--color-secondary);
+                padding: 20px;
+            }
+            .recent-projects {
+                margin-top: 20px;
+
+                @include desktop {
+                    margin-top: 0;
+                }
+
+                .project {
+                    display: flex;
+
+                    @include desktop {
+                        width: 300px;
+                        height: 98px;  
+                    }
+
+                    img {
+                        width: 50%;
+                        margin-bottom: 10px;
+                        margin-right: 10px;
+
+                        @include desktop {
+                            width: 130px;
+                            height: 82px;
+                            margin-right: 10px;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .project-info {
+                        width: 50%;
+                        
+                        @include desktop {
+                            width: 170px;
+                        }
+
+                        h5 {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+
+            .tags-container {
+                border-left: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+#our-projects-section {
+    margin-top: 40px;
+
+    @include desktop {
+        margin-top: 200px;
+    }
+    
+    .projects {
+        display: grid;
+        grid-template-rows: 1fr;
+
+        @include tablet {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include desktop {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        .project-container {
+            position: relative;
+
+            img {
+                display: block;
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto; 
+                object-fit: cover;
+
+                @include tablet {
+                    
+                }
+            }
+
+            .project-info {
+                width: 100%;
+                position: absolute;
+                max-width: 500px;
+                top: 93%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: var(--color-primary);
+                opacity: 0.6;
+                padding: 15px 10px;
+
+                @include tablet {
+                    top: 92%;
+                }
+
+                @include desktop {
+                    top: 86%;
+                }
+
+                p {
+                    color: var(--color-light);
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

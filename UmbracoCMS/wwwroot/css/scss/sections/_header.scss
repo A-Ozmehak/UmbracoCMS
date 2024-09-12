@@ -1,0 +1,102 @@
+#top-bar {
+    display: none;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+
+    @include tablet {
+        display: flex;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+            padding-bottom: 0;
+        }
+        .social-media {
+            display: flex;
+            gap: 1rem;
+        
+            a {
+                color: var(--color-light);
+                border-right: 1px solid var(--color-light);
+                border-left: 1px solid var(--color-light);
+                padding: 10px 12px;
+            }
+        }
+    }
+}
+
+header {
+    .container {
+        @include tablet {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            padding: 20px 0;
+        }
+
+        .mobile-top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+
+              #toggle-mobile-menu {
+                display: block;
+                @include tablet {
+                    display: none;
+                }
+            }
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .nav-menu {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                gap: 20px;
+
+                @include desktop {
+                    gap: 50px;
+                }
+                
+                .nav-link {
+                    color: var(--color-primary);
+                    font-weight: 700;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: var(--color-secondary);
+                        text-decoration: underline;
+                    }
+                }
+
+                .active {
+                    color: var(--color-secondary);
+                }
+            }
+        }
+        .search {
+            display: none;
+            @include tablet {
+                display: flex;
+                align-items: center;
+
+            }
+        }
+    }
+}
+
+
+
+
+
+
+ 

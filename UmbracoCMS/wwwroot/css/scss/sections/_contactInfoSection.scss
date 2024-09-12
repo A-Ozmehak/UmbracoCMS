@@ -1,0 +1,100 @@
+#contact-info-section {
+    margin-top: 30px;
+    background-color: var(--color-gray);
+    padding-top: 30px;
+
+    @include desktop {
+        margin-top: 90px;
+    }
+
+    .container {
+        @include desktop {
+            display: flex;
+            flex-direction: row;
+            gap: 100px;
+        }
+
+        .img-container {
+            display: none;
+
+            @include desktop {
+                display: block;
+                position: relative;
+                width: 50%;
+            }
+
+            .main-img {
+                position: relative;
+                z-index: 2;
+                width: 80%;
+            }
+
+            .dots-img {
+                @include desktop {
+                    position: absolute;
+                    top: 5%;
+                    left: 0;
+                    z-index: 1; 
+                    width: 100%; 
+                    height: auto; 
+                }
+               
+            }
+
+            img {
+                display: none;
+    
+                @include tablet {
+                    display: block;
+                    width: 50%;
+                }
+            }
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+
+            @include desktop {
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            h4 {
+                font-size: 30px;
+                width: 70%;
+
+                @include desktop {
+                    width: 470px;
+                    font-size: 40px;
+                }   
+            }
+
+            .contact-info-box {
+                .info-box {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 15px 0;
+                
+                    .contact-titles {
+                        font-weight: 600;
+                        padding-bottom: 0.3rem;
+
+                        i {
+                            color: var(--color-secondary);
+                            margin-right: 5px;
+                        }
+                    }
+
+                    .contact-info {
+                        font-style: italic;
+                    }
+                }
+               
+              
+            }
+        }
+    }
+}

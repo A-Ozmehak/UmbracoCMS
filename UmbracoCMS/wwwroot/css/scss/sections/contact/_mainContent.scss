@@ -1,0 +1,78 @@
+.map-container {
+    position: relative;
+
+    @include desktop {
+        margin-bottom: 90px;
+       
+    }
+
+    .map {
+        position: relative;
+
+        iframe {
+            width: 100%;
+            height: 300px;
+    
+            @include desktop {
+                height: 748px;
+                border: 0;
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+    }
+ 
+    .container {
+        background: rgba(255, 255, 255);
+        padding: 20px;
+        text-align: center;
+        
+        @include desktop {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            top: 70%;
+            left: 50%;
+            height: 567px;
+            width: 1170px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            padding: 60px 60px;
+        }
+
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                @include desktop {
+                    width: 473px;
+                    max-width: 500px;
+                    font-size: 40px;
+                }
+            }
+    
+            p {
+                @include desktop {
+                    width: 554px;
+                    max-width: 560px;
+                } 
+            }
+        }
+
+        form {
+            input {
+                margin-bottom: 20px;
+                gap: 20px;
+            }
+        }
+    }
+}

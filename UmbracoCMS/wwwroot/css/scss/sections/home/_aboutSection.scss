@@ -1,0 +1,64 @@
+#about-section {
+    .container {
+        @include desktop {
+            display: flex;
+            //grid-template-columns: 1fr 1fr;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .about-text {
+            @include desktop {
+                width: 672px;
+            }
+            h2 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+            }
+            .quote {
+                font-style: italic;
+                margin-bottom: 20px;
+            }
+        }
+
+        .request-form { 
+            @include desktop {
+                box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+                position: absolute;
+                top: -40%;
+                left: 60%;
+                background-color: var(--color-light);
+                height: 572px;
+                width: 470px;
+            }
+        
+            h3 {
+                background-color: var(--color-primary);
+                padding: 30px 20px;
+            }
+
+            p {
+                padding: 20px 20px;
+                font-style: italic;
+            }
+
+            form {
+                padding: 20px 20px;
+
+                input, select {
+                    margin-bottom: 20px;
+                }
+
+                a {
+                    width: 100%;
+                    text-align: center;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+.home-services {
+    background-color: var(--color-gray);
+}

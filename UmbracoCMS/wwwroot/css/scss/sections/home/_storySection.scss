@@ -1,0 +1,41 @@
+#story-section {
+    margin-top: 40px;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h2, h3, p {
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 2px;
+        }
+
+        h3 {
+            font-size: 40px;
+        }
+
+        p {
+            max-width: 770px;
+            margin: auto;
+        }
+
+        a {
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        img {
+            display: none;
+            @include tablet {
+                display: block;
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+    }
+}

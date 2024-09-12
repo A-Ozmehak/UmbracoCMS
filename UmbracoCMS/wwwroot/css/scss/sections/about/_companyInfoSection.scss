@@ -1,0 +1,51 @@
+#company-info-section {
+    margin-top: 30px;
+
+    @include desktop {
+        margin-top: 90px;
+    }
+
+    .container {
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include desktop {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .ceo-info {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    width: 100%;
+
+                    @include tablet {
+                        width: 400px;
+                        height: 571px;
+                    }
+                }
+
+                .image-description {
+                    font-style: italic;
+                    margin-top: 5px;
+                    font-size: 12px;
+                }
+            }
+
+            .text-content {
+                .quote {
+                    font-style: italic;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

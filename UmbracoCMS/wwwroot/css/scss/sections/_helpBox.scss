@@ -1,0 +1,50 @@
+.bottom-content {
+    background-color: var(--color-primary);
+    padding: 20px 20px;
+    position: relative;
+    overflow: hidden;
+    height: 223px;
+
+    @include desktop {
+        width: 300px;
+    }
+
+            
+    h6 {
+    font-size: 18px;
+    font-weight: 500;
+    }
+            
+    p {
+        color: var(--color-light);
+        font-size: 14px;
+        opacity: 0.5;
+    }
+            
+    .input-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+            
+        i {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-secondary);
+            margin-right: 10px;
+        }
+    }
+            
+    .background-icon {
+        color: var(--color-light);
+        margin-right: 10px;
+        opacity: 0.2;
+        position: absolute;
+        right: -40px;
+        font-size: 12rem;
+        top: 95px;
+        transform: rotate(-25deg);  
+    }
+
+}
