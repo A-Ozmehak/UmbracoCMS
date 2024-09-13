@@ -1,10 +1,18 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Models.PublishedContent
 @using Umbraco.Cms.Core.Routing
 @using Umbraco.Extensions
-
+@inject IPublishedValueFallback PublishedValueFallback
 @inject IPublishedUrlProvider PublishedUrlProvider
-
 @{ 
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var backgroundImage1 = settings?.Value<IPublishedContent>("backgroundImageLeft")?.Url() ?? null;
+    var backgroundImage2 = settings?.Value<IPublishedContent>("backgroundImageRight")?.Url() ?? null;
+
     var selection = Model.Ancestors().ToArray(); 
     var homePageDisplayName = "Home";
     var isFirstItem = true;
@@ -12,8 +20,8 @@
 
 <section id="title-section">
     <div class="background">
-        <img class="left-background-img" src="/img/aboutBackground2.svg" alt="background">
-        <img class="right-background-img" src="/img/aboutBackground1.svg" alt="background">
+        <img class="left-background-img" src="@backgroundImage2" alt="background">
+        <img class="right-background-img" src="@backgroundImage1" alt="background">
     </div>
 
     <div class="container">

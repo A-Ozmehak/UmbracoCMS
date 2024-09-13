@@ -5,25 +5,28 @@
     overflow: hidden;
 
     .background {
+        height: 100%;
+
         .left-background-img {
             display: none;
-            @include tablet {
-                display: block;
-                position: absolute;
-                top: 69%;
-                left: 20%;
-                transform: translate(-50%, -50%);
-            }
-        }
 
-        .right-background-img {
-            display: none;
             @include tablet {
                 display: block;
                 position: absolute;
                 top: -10%;
                 right: 0;
                 transform: translate(0, 0);
+            }
+        }
+
+        .right-background-img {
+            display: none;
+
+            @include tablet {
+                display: block;
+                position: absolute;
+                top: 35%;
+                left: 0;
                 width: 50%;
             }
         }
@@ -36,6 +39,10 @@
         justify-content: center;
         padding: 20px 0;
         height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
         h1 {
             font-size: 40px;
@@ -46,7 +53,7 @@
             list-style: none;
             display: flex;
             align-items: center;
-            
+
             @include tablet {
                 font-size: 16px;
             }

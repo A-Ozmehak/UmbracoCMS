@@ -1,0 +1,47 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedUrlProvider PublishedUrlProvider
+@{
+
+
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "";
+    var phoneNumber = settings?.Value<string>("officePhoneNumber") ?? "";
+    var emailAddress = settings?.Value<string>("officeEmailAddress") ?? "";
+    var dotBackground = settings?.Value<IPublishedContent>("dotBackground").Url() ?? null;
+    var mainBackground = settings?.Value<IPublishedContent>("mainBackground").Url() ?? null;
+}
+ 
+<div id="contact-info-section">
+    <div class="container">
+        <div class="img-container">
+            <img class="main-img" src="@mainBackground" alt="contact image">
+            <img class="dots-img" src="@dotBackground" alt="contact image">
+        </div>
+                        
+        <div class="content-container">
+            <h4>Let us know about your next project</h4>
+            <div class="contact-info-box">
+                <div class="info-box">
+                    <p class="contact-titles"><i class="fa-regular fa-location-dot"></i>Office location</p>
+                    <p>@officeLocation</p>
+                </div>
+                <div class="info-box">
+                    <p class="contact-titles"><i class="fa-regular fa-phone"></i>Phone number</p>
+                    <p class="contact-info">@phoneNumber</p>
+                </div>
+                <div class="info-box">
+                    <p class="contact-titles"><i class="fa-regular fa-envelope"></i>E-mail address</p>
+                    <p class="contact-info">@emailAddress</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

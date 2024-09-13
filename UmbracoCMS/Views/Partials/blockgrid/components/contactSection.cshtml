@@ -1,0 +1,50 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedUrlProvider PublishedUrlProvider
+@{
+    var dotImage = Model?.Content.Value<IPublishedContent>("backgroundDotImage")?.Url() ?? null;
+    var mainImage = Model?.Content.Value<IPublishedContent>("mainImage")?.Url() ?? null;
+    var headline = Model?.Content.Value<string>("headline") ?? "";
+    var officeLocationLabel = Model?.Content.Value<string>("officeLocationLabel") ?? "";
+    var phoneNumberLabel = Model?.Content.Value<string>("phoneNumberLabel") ?? "";
+    var emailAddressLabel = Model?.Content.Value<string>("emailAddressLabel") ?? "";
+
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "";
+    var phoneNumber = settings?.Value<string>("officePhoneNumber") ?? "";
+    var emailAddress = settings?.Value<string>("officeEmailAddress") ?? "";
+}
+ 
+<div id="contact-info-section">
+    <div class="container">
+        <div class="img-container">
+            <img class="main-img" src="@mainImage" alt="contact image">
+            img class="dots-img" src="@dotImage" alt="contact image">
+        </div>
+                        
+        <div class="content-container">
+            <h4>@headline</h4>
+            <div class="contact-info-box">
+                <div class="info-box">
+                    <p class="contact-titles"><i class="fa-regular fa-location-dot"></i>@officeLocationLabel</p>
+                    <p>@officeLocation</p>
+                </div>
+                <div class="info-box">
+                    <p class="contact-titles"><i class="fa-regular fa-phone"></i>@phoneNumberLabel</p>
+                    <p class="contact-info">@phoneNumber</p>
+                </div>
+                <div class="info-box">
+                    <p class="contact-titles"><i class="fa-regular fa-envelope"></i>@emailAddressLabel</p>
+                    <p class="contact-info">@emailAddress</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@{
+    var sectionTitle = Model?.Content.Value<string>("sectiontitle") ?? "";
+    var headline = Model?.Content.Value<string>("headline") ?? "";
+
+    var colorLabel = Model.Content?.Value<ColorPickerValueConverter.PickedColor>("backgroundColor")?.Label.ToLower() ?? null;
+    var backgroundColorClass = !string.IsNullOrEmpty(colorLabel) ? $"bg-{colorLabel}" : "";
+
+    var projects = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("projects");
+        
+}
+
+<section id="our-projects-section">
+    <div class="container">
+        <span>@sectionTitle</span>
+        <h4>@headline</h4>  
+    </div>
+    <div class="projects">
+        @foreach (var item in projects)
+        {
+            var projectImage = item?.Content.Value<IPublishedContent>("projectImage")?.Url();
+            var projectDescription = item?.Content.Value<string>("projectDescription") ?? "";
+            var projectService = item?.Content.Value<string>("projectService") ?? "";
+
+            <div class="project-container">
+                <img src="@projectImage" alt="people in a meeting" >
+                <div class="project-info">
+                    <p>@projectDescription</p>
+                    <p>@projectService</p>
+                </div>
+            </div>
+        }
+        
+        
+    </div>
+</section>

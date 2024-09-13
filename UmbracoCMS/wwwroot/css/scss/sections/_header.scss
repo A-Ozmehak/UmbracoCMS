@@ -30,26 +30,41 @@
 }
 
 header {
+    width: 100%;
+    padding: 20px 0 10px 0;
+
+    @include tablet {
+        padding: 0;
+    }
+
     .container {
+        display: flex;
+        flex-direction: column;
+
         @include tablet {
             display: grid;
             grid-template-columns: auto 1fr auto;
             padding: 20px 0;
         }
 
-        .mobile-top-header {
+        .mobile-header-top {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
+            margin-bottom: 15px;
 
-              #toggle-mobile-menu {
+            #toggle-mobile-menu {
                 display: block;
+                height: 40px;
+                width: 40px;
+
                 @include tablet {
                     display: none;
                 }
             }
         }
+
+
+
 
         #navbar {
             display: flex;
@@ -66,7 +81,7 @@ header {
                 @include desktop {
                     gap: 50px;
                 }
-                
+
                 .nav-link {
                     color: var(--color-primary);
                     font-weight: 700;
@@ -83,12 +98,13 @@ header {
                 }
             }
         }
+
         .search {
             display: none;
+
             @include tablet {
                 display: flex;
                 align-items: center;
-
             }
         }
     }

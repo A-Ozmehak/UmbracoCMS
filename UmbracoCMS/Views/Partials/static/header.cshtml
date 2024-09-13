@@ -18,7 +18,11 @@
 
 <header>
     <div class="container">
-        <a class="logotype" href="/"><img src="@siteLogotype" alt="@siteName"></a>
+        <div class="mobile-header-top">
+                 <a class="logotype" href="/"><img src="@siteLogotype" alt="@siteName"></a>
+            <button id="toggle-mobile-menu" class="btn-circle"><i class="fa-regular fa-bars"></i></button>
+        </div>
+   
         <div id="navbar">
             <nav class="nav-menu">
                 @if (selection?.Length > 0)
@@ -33,6 +37,6 @@
         <div class="search">
             <i class="fas fa-search"></i>
         </div>
-        <button id="toggle=mobile-menu" class="btn-circle"><i class="fa-regular fa-bars"></i></button>
+        
     </div>
 </header>
