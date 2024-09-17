@@ -1,0 +1,75 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@{
+    var projectItem = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("projectItem");
+
+    var itemsPerPage = 6;
+    if (!int.TryParse(Context.Request.Query["page"], out int currentPage))
+        currentPage = 1;
+    
+    var totalItems = projectItem?.Count() ?? 0;
+    var pagedItems = projectItem?.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
+        
+}
+
+
+<div class="projects">
+    @if (projectItem != null) {
+        @foreach (var item in projectItem)
+        {
+            var projectImage = item?.Content.Value<IPublishedContent>("projectImage")?.Url();
+            var projectTitle = item?.Content.Value<string>("projectTitle") ?? "";
+            var projectDate = item?.Content.Value<string>("projectDate") ?? "";
+            var projectText = item?.Content.Value<string>("projectText") ?? "";
+            var projectUrl = projectTitle.Replace(" ", "-");
+
+            <a href="/@projectUrl">
+                <div class="project-container">
+                    <img src="@projectImage" alt="people in a meeting" >
+                    <div class="project-info">
+                        <h5>@projectTitle</h5>
+                        <p><i class="fa-solid fa-calendar-days"></i> @projectDate</p>
+                        <p>@projectText</p>
+                    </div>
+                </div>
+            </a>
+        }  
+    }
+    
+</div>
+
+
+<section class="pagination">
+    <div class="container">
+
+        @if (currentPage > 1)
+        {
+            <a href="?page=@(currentPage - 1)" class="change">PREV</a>
+        }
+        else 
+        {
+            <span class="change inactive">PREV</span>
+        }
+
+        <ul class="pages">
+            @for (int i = 1; i <= Math.Ceiling((decimal)totalItems / itemsPerPage); i++)
+            {
+                <li class="@((i == currentPage) ? "number active" : "number")">
+                    <a href="?page=@i">@i</a>
+                </li>
+            }
+        </ul>
+
+        @if (currentPage < Math.Ceiling((decimal)totalItems / itemsPerPage))
+        {
+            <a href="?page=@(currentPage + 1)" class="change">NEXT</a>
+        }
+        else 
+        {
+            <span class="change inactive">NEXT</span>
+        }
+
+    </div>
+</section>

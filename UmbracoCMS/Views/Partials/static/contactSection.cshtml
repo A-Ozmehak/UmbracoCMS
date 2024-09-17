@@ -8,8 +8,6 @@
 @inject IPublishedValueFallback PublishedValueFallback
 @inject IPublishedUrlProvider PublishedUrlProvider
 @{
-
-
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
     var officeLocation = settings?.Value<string>("officeLocation") ?? "";

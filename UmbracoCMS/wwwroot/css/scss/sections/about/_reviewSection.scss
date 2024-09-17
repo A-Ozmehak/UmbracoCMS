@@ -3,7 +3,7 @@
     background-color: var(--color-gray);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 520px;
 
     @include desktop {
         flex-direction: row-reverse;
@@ -22,27 +22,28 @@
     }
 
     .container {
+        padding: 40px 0;
         @include desktop {
-            margin-left: 200px;
+            margin-left: 50px;
+            margin-right: 50px;
+            width: 630px;
         }
 
+        .review-text {
+            font-style: italic;
+            opacity: 0.7;
+        }
 
+        #stars {
+            margin-bottom: 20px;
+            display: flex;
 
-            .review-text {
-                font-style: italic;
-                opacity: 0.7;
-            }
+        }
 
-            #stars {
-                margin-bottom: 20px;
-                display: flex;
-
-            }
-
-            .name {
-                padding-bottom: 0;
-                font-size: 12px;
-            }
+        .name {
+            padding-bottom: 0;
+            font-size: 12px;
+        }
      
     }
 }

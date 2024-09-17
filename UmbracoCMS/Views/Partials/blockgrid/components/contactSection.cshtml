@@ -7,26 +7,34 @@
 @using Umbraco.Extensions
 @inject IPublishedValueFallback PublishedValueFallback
 @inject IPublishedUrlProvider PublishedUrlProvider
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
 @{
-    var dotImage = Model?.Content.Value<IPublishedContent>("backgroundDotImage")?.Url() ?? null;
-    var mainImage = Model?.Content.Value<IPublishedContent>("mainImage")?.Url() ?? null;
     var headline = Model?.Content.Value<string>("headline") ?? "";
     var officeLocationLabel = Model?.Content.Value<string>("officeLocationLabel") ?? "";
     var phoneNumberLabel = Model?.Content.Value<string>("phoneNumberLabel") ?? "";
     var emailAddressLabel = Model?.Content.Value<string>("emailAddressLabel") ?? "";
+
+    var colorLabel = Model.Content?.Value<ColorPickerValueConverter.PickedColor>("backgroundColor")?.Label.ToLower() ?? null;
+    var backgroundColorClass = !string.IsNullOrEmpty(colorLabel) ? $"bg-{colorLabel}" : "";
 
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
     var officeLocation = settings?.Value<string>("officeLocation") ?? "";
     var phoneNumber = settings?.Value<string>("officePhoneNumber") ?? "";
     var emailAddress = settings?.Value<string>("officeEmailAddress") ?? "";
+    var dotBackground = settings?.Value<IPublishedContent>("dotBackground").Url() ?? null;
+    var mainBackground = settings?.Value<IPublishedContent>("mainBackground").Url() ?? null;
 }
  
 <div id="contact-info-section">
+    @if (!string.IsNullOrEmpty(backgroundColorClass))
+    {
+    <div class="background @backgroundColorClass"></div>
+    }
     <div class="container">
         <div class="img-container">
-            <img class="main-img" src="@mainImage" alt="contact image">
-            img class="dots-img" src="@dotImage" alt="contact image">
+            <img class="main-img" src="@mainBackground" alt="contact image">
+            <img class="dots-img" src="@dotBackground" alt="contact image">
         </div>
                         
         <div class="content-container">

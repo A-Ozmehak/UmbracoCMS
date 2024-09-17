@@ -2,61 +2,82 @@
     margin-top: 40px;
 
     .container {
+        display: flex;
+        flex-direction: column;
+
         @include desktop {
-            display: flex;
-            gap: 20px;
+            gap: 53px;
+            flex-direction: row;
         }
 
         .projects {
-            .project, .project-with-border {
-                margin-top: 40px;
+            a {
+                text-decoration: none;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
 
-                @include desktop {
+                .project-container {
+                    padding-bottom: 20px;
                     display: flex;
-                    flex-direction: row;
-                    gap: 20px;
-                    margin-bottom: 20px;
-                }
-
-                h5 {
-                    margin-bottom: 0;
-                }
-
-                img {
-                    width: 100%;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
 
                     @include desktop {
-                       
+                        flex-direction: row;
+                        gap: 20px;
+                        margin-bottom: 20px;
+                        height: 226px;
+                        width: 770px;
+                        border-bottom: 1px solid var(--color-gray);
                     }
-                }
 
-                p {
-                    i {
-                        margin-right: 5px;
+                    img {
+                        width: 100%;
+
+                        @include desktop {
+                        }
                     }
-                }
-               
-                a {
-                    color: var(--color-primary);
 
-                    i {
-                        color: var(--color-secondary);
-                        margin-left: 10px;
+                    .project-info {
+                        margin-top: 20px;
+
+                        h5 {
+                            margin-bottom: 0;
+                        }
+
+                        .date {
+                            opacity: 0.5;
+                            margin-top: 5px;
+                        }
+
+                        p {
+                            color: var(--color-primary);
+
+                            i {
+                                margin-right: 5px;
+                            }
+                        }
+
+                        .read-more {
+                            color: var(--color-primary);
+
+                            i {
+                                color: var(--color-secondary);
+                                margin-left: 5px;
+                            }
+                        }
                     }
                 }
             }
+        }
 
-            .project-with-border {
-                @include desktop {
-                    border-bottom: 1px solid var(--color-secondary);
-                    padding-bottom: 15px;
-                }
+        .side-container {
+            width: 100%;
+
+            @include desktop {
+                width: 336px;
             }
-            
-        }  
+        }
     }
-} 
+}

@@ -1,31 +1,43 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = "mainLayout.cshtml";
+    Layout = "mainLayout.cshtml";
     ViewBag.Title = Model?.Value("pageTitle") ?? null;
 
     var sidebarTitle = Model?.Value<string>("sidebarTitle") ?? "";
-    var sidebarText = Model?.Value<string>("sidebarText") ?? "";
-    var sidebarImage = Model?.Value<IPublishedContent>("sidebarImage")?.Url() ?? null;
     var helpBoxTitle = Model?.Value<string>("helpBoxTitle") ?? "";
     var helpBoxText = Model?.Value<string>("helpBoxText") ?? "";
+    var tagItems = Model?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("tagItems");      
+    //var projects = Model?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("projects");
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
 {
     @await Html.PartialAsync("partials/static/breadcrumbsContainer.cshtml")
 }
-<section class="service-details">
-    
+<section class="project-details">
     <div class="container">
         @Model.Value("pageContent")
+
         <div class="side-container">
             <h4>@sidebarTitle</h4>
-            @if (sidebarImage != null) {
-                <img src="@sidebarImage" alt="business meeting">
-            }         
+            <div class="project">
+         
+           
+            </div>
+            @if (tagItems != null) 
+            {
+                <div class="tags-container">
+                @foreach (var item in tagItems)
+                {
+                    var tagName = item?.Content.Value<string>("tagName");
+                    <a href="#">@tagName</a>
+                }
+                </div>
+            }
     
-            <p>@sidebarText</p>
+           
             <div class="bottom-content">
                 <h6>@helpBoxTitle</h6>
                 <p>@helpBoxText</p>

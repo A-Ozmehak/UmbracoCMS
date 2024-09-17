@@ -1,40 +1,24 @@
-.main-content {
+.service-details {
     margin-top: 30px;
 
     @include desktop {
         margin-top: 50px;
     }
 
-    .content {
-        display: grid;
-        grid-template-columns: 1fr;
-       
+    .container {
+        display: flex;
+        flex-direction: column;
+
         @include desktop {
-            grid-template-columns: 1fr auto;
-            gap: 20px;
+            flex-direction: row-reverse;
+            gap: 70px;
         }
 
-        .about-side-container {
-            margin-bottom: 30px;
-
+        .content {
             @include desktop {
-                border-right: 1px solid var(--color-primary);
-                padding: 20px;
-                margin-bottom: 0;
+                gap: 20px;
             }
 
-            p {
-                font-size: 12px;
-                margin-top: 10px;
-                margin-bottom: 20px;
-
-                @include tablet {
-                    font-size: 16px;
-                }
-            }
-        }
-    
-        .content-container {
             img {
                 width: 100%;
                 height: auto;
@@ -48,7 +32,27 @@
                     font-size: 16px;
                 }
             }
+        }
 
+        .side-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+
+            @include desktop {
+                width: 348px;
+            }
+
+            img {
+                width: 50%;
+                margin-bottom: 20px;
+
+                @include desktop {
+                    width: 100%;
+                }
+            }
         }
     }
 
@@ -63,12 +67,11 @@
             border: 1px solid var(--color-secondary);
             border-radius: 2px;
             padding-left: 30px;
-            padding: 10px;       
-    
+            padding: 10px;
+
             &::placeholder {
                 font-style: italic;
             }
         }
     }
 }
-

@@ -4,28 +4,29 @@
     position: relative;
     overflow: hidden;
     height: 223px;
+    width: 100%;
 
     @include desktop {
-        width: 300px;
+        width: 336px;
     }
 
-            
+
     h6 {
-    font-size: 18px;
-    font-weight: 500;
+        font-size: 18px;
+        font-weight: 500;
     }
-            
+
     p {
         color: var(--color-light);
         font-size: 14px;
         opacity: 0.5;
     }
-            
+
     .input-container {
         position: relative;
         display: inline-block;
         width: 100%;
-            
+
         i {
             position: absolute;
             right: 0;
@@ -35,7 +36,7 @@
             margin-right: 10px;
         }
     }
-            
+
     .background-icon {
         color: var(--color-light);
         margin-right: 10px;
@@ -44,7 +45,6 @@
         right: -40px;
         font-size: 12rem;
         top: 95px;
-        transform: rotate(-25deg);  
+        transform: rotate(-25deg);
     }
-
 }

@@ -1,0 +1,41 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@{
+    var sidebarTitle = Model?.Content.Value<string>("sidebarTitle") ?? "";
+    var sidebarText = Model?.Content.Value<string>("sidebarText") ?? "";
+    var sidebarImage = Model?.Content.Value<IPublishedContent>("sidebarImage")?.Url() ?? null;
+    var helpBoxTitle = Model?.Content.Value<string>("helpBoxTitle") ?? "";
+    var helpBoxText = Model?.Content.Value<string>("helpBoxText") ?? "";
+    var tagItems = Model?.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("tagItems");
+        
+}
+
+<div class="side-container">
+    <h4>@sidebarTitle</h4>
+    @if (sidebarImage != null) {
+        <img src="@sidebarImage" alt="business meeting">
+    }
+    @if (tagItems != null) 
+    {
+        <div class="tags-container">
+            @foreach (var item in tagItems)
+            {
+                var tagName = item?.Content.Value<string>("tagName");
+                <a href="#">@tagName</a>
+            }
+        </div>
+    }
+    
+    <p>@sidebarText</p>
+    <div class="bottom-content">
+        <h6>@helpBoxTitle</h6>
+        <p>@helpBoxText</p>
+        <div class="input-container">
+            <input type="text" placeholder="E-mail address">
+            <i class="fa-regular fa-envelope"></i>
+        </div> 
+        <i class="fa-regular fa-envelope background-icon"></i>
+    </div>                   
+</div>
