@@ -1,5 +1,6 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
 	Layout = "mainLayout.cshtml";
     ViewBag.Title = Model?.Value("pageTitle") ?? null;
@@ -9,6 +10,7 @@
     var sidebarImage = Model?.Value<IPublishedContent>("sidebarImage")?.Url() ?? null;
     var helpBoxTitle = Model?.Value<string>("helpBoxTitle") ?? "";
     var helpBoxText = Model?.Value<string>("helpBoxText") ?? "";
+    var formTitle = Model?.Value<string>("formTitle") ?? "";
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
@@ -20,7 +22,7 @@
     <div class="container">
         @Model.Value("pageContent")
         <div class="side-container">
-            <h4>@sidebarTitle</h4>
+            <h5>@sidebarTitle</h5>
             @if (sidebarImage != null) {
                 <img src="@sidebarImage" alt="business meeting">
             }         
@@ -39,4 +41,25 @@
     </div>
   
 </section>
-  @await Html.PartialAsync("partials/static/contactSection.cshtml")
+<section class="question-form">
+    <div class="container">
+        <div class="text-content">
+            <h5>@formTitle</h5>
+        </div>
+        <form>
+            <div class="input-container">
+                <input id="name" type="text" placeholder="Name">
+                <input id="email" type="text" placeholder="Email">
+            </div>
+            <textarea id="question" placeholder="Question"></textarea>
+            <button type="submit" class="btn-primary">Submit</button>
+        </form>       
+     
+    </div>
+</section>
+
+@await Html.PartialAsync("partials/static/contactSection.cshtml")
+   
+
+
+    

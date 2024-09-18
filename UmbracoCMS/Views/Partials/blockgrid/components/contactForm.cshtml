@@ -1,0 +1,38 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@{
+	var sectionTitle = Model?.Content.Value<string>("sectionTitle");
+    var headline = Model?.Content.Value<string>("headline");
+    var text = Model?.Content.Value<string>("text");
+    var buttonLabel = Model?.Content.Value<string>("buttonLabel");
+	var buttonBackgroundColor = Model?.Content?.Value<ColorPickerValueConverter.PickedColor>("buttonBackgroundColor")?.Label.ToLower() ?? null;
+}
+
+
+<div class="text-content">
+    <span>@sectionTitle</span>
+    <h3>@headline</h3>
+    <p>@text</p>
+</div>
+                    
+<form onsubmit="handleContactFormSubmit(event)" novalidate>
+
+	<div class="input-container">
+			<input id="name" name="name" type="text" placeholder="Name">
+			<input name="phone" type="text" placeholder="Phone">
+
+			<input id="email" name="email" type="email" placeholder="Email address">
+			<select>
+				<option value="0">Select a service</option>
+				<option value="1">Service 1</option>
+				<option value="2">Service 2</option>
+				<option value="3">Service 3</option>
+			</select>
+	</div>		
+
+	<button type="submit" class="btn btn-@buttonBackgroundColor">Send</button>
+</form>
+
+	

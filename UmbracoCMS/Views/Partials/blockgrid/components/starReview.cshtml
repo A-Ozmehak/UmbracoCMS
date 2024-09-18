@@ -1,0 +1,17 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@{
+    var starIcon = Model?.Content.Value<string>("starIcon");
+    var starRating = Model?.Content.Value<int>("starReviewRating");
+}
+
+<div class="stars">
+    @for (var i = 0; i < starRating; i++)
+    {
+        <i class="@starIcon"></i>
+    }
+    
+
+</div>

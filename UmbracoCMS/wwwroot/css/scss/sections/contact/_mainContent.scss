@@ -1,4 +1,4 @@
-.map-container {
+#map-container {
     position: relative;
 
     @include desktop {
@@ -20,6 +20,7 @@
 
         .overlay {
             display: none;
+
             @include desktop {
                 display: block;
                 position: absolute;
@@ -75,6 +76,10 @@
             input {
                 margin-bottom: 20px;
                 gap: 20px;
+            }
+
+            .form-input-error {
+                display: none;
             }
         }
     }
