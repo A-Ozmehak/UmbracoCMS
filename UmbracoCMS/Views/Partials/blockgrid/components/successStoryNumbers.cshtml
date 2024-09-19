@@ -1,0 +1,29 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
+    var headline = Model?.Content.Value<string>("headline") ?? "";
+    var stories = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("storyNumbers");
+}
+
+@if (stories != null)
+{
+    <div class="container">
+        <span>@sectionTitle</span>
+        <h3>@headline</h3>
+        <div class="story-numbers">
+            @foreach (var item in stories)
+            {
+                var number = item?.Content.Value<string>("number") ?? "";
+                var description = item?.Content.Value<string>("description") ?? "";
+
+                <div class="numbers-box">
+                    <h2>@number</h2>
+                    <p>@description</p>
+                </div>
+            }
+          
+            </div>
+    </div>
+}

@@ -16,23 +16,30 @@
     <h3>@headline</h3>
     <p>@text</p>
 </div>
-                    
-<form onsubmit="handleContactFormSubmit(event)" novalidate>
 
-	<div class="input-container">
-			<input id="name" name="name" type="text" placeholder="Name">
-			<input name="phone" type="text" placeholder="Phone">
+@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+{
+    <form onsubmit="handleContactFormSubmit(event)" novalidate>
 
-			<input id="email" name="email" type="email" placeholder="Email address">
-			<select>
-				<option value="0">Select a service</option>
-				<option value="1">Service 1</option>
-				<option value="2">Service 2</option>
-				<option value="3">Service 3</option>
-			</select>
-	</div>		
+        <div class="input-container">
+            <input id="name" name="name" type="text" placeholder="Name">
+            <input id="phone" name="phone" type="text" placeholder="Phone">
 
-	<button type="submit" class="btn btn-@buttonBackgroundColor">Send</button>
-</form>
+            <input id="email" name="email" type="email" placeholder="Email address">
+            <select>
+                <option value="0">Select a service</option>
+                <option value="1">Service 1</option>
+                <option value="2">Service 2</option>
+                <option value="3">Service 3</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-@buttonBackgroundColor">Send</button>
+    </form>
+}
+
+
+
+
 
 	

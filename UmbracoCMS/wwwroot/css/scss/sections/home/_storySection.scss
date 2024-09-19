@@ -24,9 +24,16 @@
             margin: auto;
         }
 
+        #button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         a {
             margin-bottom: 20px;
             border-radius: 5px;
+            color: var(--color-light);
         }
 
         img {

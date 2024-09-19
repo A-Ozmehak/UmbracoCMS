@@ -2,7 +2,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = "mainLayout.cshtml";
+    Layout = "mainLayout.cshtml";
     ViewBag.Title = Model?.Value("pageTitle") ?? null;
 
     var sidebarTitle = Model?.Value<string>("sidebarTitle") ?? "";
@@ -11,6 +11,10 @@
     var helpBoxTitle = Model?.Value<string>("helpBoxTitle") ?? "";
     var helpBoxText = Model?.Value<string>("helpBoxText") ?? "";
     var formTitle = Model?.Value<string>("formTitle") ?? "";
+
+    bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+    bool.TryParse(ViewData["error_question"]?.ToString()!, out bool error_question);
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
@@ -20,7 +24,8 @@
 <section class="service-details">
     
     <div class="container">
-        @Model.Value("pageContent")
+        @Model?.Value("pageContent")
+
         <div class="side-container">
             <h5>@sidebarTitle</h5>
             @if (sidebarImage != null) {
@@ -46,15 +51,29 @@
         <div class="text-content">
             <h5>@formTitle</h5>
         </div>
-        <form>
-            <div class="input-container">
-                <input id="name" type="text" placeholder="Name">
-                <input id="email" type="text" placeholder="Email">
-            </div>
-            <textarea id="question" placeholder="Question"></textarea>
-            <button type="submit" class="btn-primary">Submit</button>
-        </form>       
-     
+
+        @if (ViewData["success"] != null)
+        {
+            <div class="success-message">@ViewData["success"]</div>
+        }
+        else
+        {
+            @using (Html.BeginUmbracoForm("HandleSubmit", "QuestionSurface", FormMethod.Post))
+            {
+                <div class="input-container">
+                    <input id="name" name="name" type="text" placeholder="Name" value="@ViewData["name"]">
+                    <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">You much enter your name</span>
+
+                    <input id="email" name="email" type="text" placeholder="Email" value="@ViewData["email"]">
+                    <span class="form-input-error @((error_email) ? "form-invalid-input" : null)">You much enter your email</span>
+                </div>
+                <textarea id="question" name="question" placeholder="Question" value="@ViewData["question"]"></textarea>
+                <span class="form-input-error @((error_question) ? "form-invalid-input" : null)">You much enter your question</span>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            }
+        }
+        
     </div>
 </section>
 

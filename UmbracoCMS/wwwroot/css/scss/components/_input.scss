@@ -17,6 +17,14 @@
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
+
+    .form-input-error {
+        display: none;
+    }
+        
+    .form-invalid-input {
+        color: red;
+    }
 }
 
 input {
