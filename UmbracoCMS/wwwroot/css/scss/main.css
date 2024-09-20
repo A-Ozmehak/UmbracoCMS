@@ -197,7 +197,6 @@ h6 {
 .input-container input {
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
   border: 1px solid var(--color-accent);
   border-radius: 2px;
 }
@@ -211,22 +210,32 @@ h6 {
     gap: 20px;
   }
 }
-.input-container .form-input-error {
-  display: none;
-}
-.input-container .form-invalid-input {
-  color: red;
-}
 
 input {
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
   border: 1px solid var(--color-accent);
   border-radius: 2px;
 }
 input::placeholder {
   font-style: italic;
+}
+
+.success-message {
+  color: var(--color-secondary);
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input-error {
+  color: red;
+}
+
+.form-invalid-input {
+  color: red;
 }
 
 select {
@@ -626,7 +635,12 @@ header .container .search {
 }
 
 #about-section {
-  margin-bottom: 70px;
+  margin-bottom: 50px;
+}
+@media (min-width: 1400px) {
+  #about-section {
+    margin-bottom: 120px;
+  }
 }
 #about-section .container {
   display: grid;
@@ -662,10 +676,6 @@ header .container .search {
     width: 470px;
   }
 }
-#about-section .container #request-form .container {
-  display: flex;
-  flex-direction: column;
-}
 #about-section .container #request-form h3 {
   background-color: var(--color-primary);
   padding: 30px 20px;
@@ -674,32 +684,27 @@ header .container .search {
   padding: 20px 20px 0 20px;
   font-style: italic;
 }
-#about-section .container #request-form form {
-  padding: 20px 20px;
-  display: grid;
-  grid-template-columns: 1fr;
-}
-#about-section .container #request-form form .input-container {
+#about-section .container #request-form .container {
   display: flex;
   flex-direction: column;
 }
-#about-section .container #request-form form input {
-  margin-bottom: 0;
+#about-section .container #request-form .container form {
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr;
 }
-#about-section .container #request-form form select {
+#about-section .container #request-form .container form .input-container {
+  display: flex;
+  flex-direction: column;
+}
+#about-section .container #request-form .container form .input-container input {
+  margin-top: 10px;
+}
+#about-section .container #request-form .container form .input-container .form-input-error {
+  color: red;
+}
+#about-section .container #request-form .container form select {
   margin-bottom: 20px;
-}
-#about-section .container #request-form form .form-input-error {
-  display: none;
-}
-#about-section .container #request-form form a {
-  width: 100%;
-  text-align: center;
-  border: none;
-}
-
-.home-services {
-  background-color: var(--color-gray);
 }
 
 #story-section {
@@ -1040,8 +1045,8 @@ footer {
 }
 
 #services-section {
-  background-color: var(--color-gray);
-  padding-top: 60px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 #services-section .container {
   display: flex;
@@ -1190,8 +1195,9 @@ footer {
 .question-form .container form {
   margin-top: 50px;
 }
-.question-form .container form input {
+.question-form .container form .input-container input {
   height: 38px;
+  margin-bottom: 20px;
 }
 .question-form .container form textarea {
   width: 100%;
@@ -1442,12 +1448,18 @@ footer {
   flex-direction: column;
   align-items: center;
 }
+#map-container .container .text-content h3 {
+  color: var(--color-primary);
+}
 @media (min-width: 1400px) {
-  #map-container .container .text-content h2 {
+  #map-container .container .text-content h3 {
     width: 473px;
     max-width: 500px;
     font-size: 40px;
   }
+}
+#map-container .container .text-content p {
+  margin-bottom: 10px;
 }
 @media (min-width: 1400px) {
   #map-container .container .text-content p {
@@ -1455,10 +1467,21 @@ footer {
     max-width: 560px;
   }
 }
-#map-container .container form input {
-  margin-bottom: 20px;
+#map-container .container form .contact-input {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
+  margin-bottom: 10px;
 }
-#map-container .container form .form-input-error {
-  display: none;
+@media (min-width: 1400px) {
+  #map-container .container form .contact-input {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+#map-container .container form .contact-input .input-container {
+  display: flex;
+  flex-direction: column;
+}
+#map-container .container form button {
+  margin-top: 20px;
 }

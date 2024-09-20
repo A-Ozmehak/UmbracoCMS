@@ -1,5 +1,9 @@
 #about-section {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
+
+    @include desktop {
+        margin-bottom: 120px;
+    }
 
     .container {
         display: grid;
@@ -11,8 +15,6 @@
         }
 
         #about-text {
-
-
             @include desktop {
                 width: 672px;
             }
@@ -29,8 +31,6 @@
         }
 
         #request-form {
-  
-
             @include desktop {
                 box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
                 position: absolute;
@@ -39,11 +39,6 @@
                 background-color: var(--color-light);
                 height: 572px;
                 width: 470px;
-            }
-
-            .container {
-                display: flex;
-                flex-direction: column;
             }
 
             h3 {
@@ -56,38 +51,34 @@
                 font-style: italic;
             }
 
-            form {
-                padding: 20px 20px;
-                display: grid;
-                grid-template-columns: 1fr;
+            .container {
+                display: flex;
+                flex-direction: column;
 
-                .input-container {
-                    display: flex;
-                    flex-direction: column;
-                }
+                form {
+                    padding: 0 20px;
+                    display: grid;
+                    grid-template-columns: 1fr;
 
-                input {
-                    margin-bottom: 0;
-                }
+                    .input-container {
+                        display: flex;
+                        flex-direction: column;
 
-                select {
-                    margin-bottom: 20px;
-                }
+                        input {
+                            margin-top: 10px;
+                        }
 
-                .form-input-error {
-                    display: none;
-                }
+                        .form-input-error {
+                            //display: none;
+                            color: red;
+                        }
+                    }
 
-                a {
-                    width: 100%;
-                    text-align: center;
-                    border: none;
+                    select {
+                        margin-bottom: 20px;
+                    }
                 }
             }
         }
     }
-}
-
-.home-services {
-    background-color: var(--color-gray);
 }

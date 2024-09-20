@@ -26,11 +26,7 @@
     var mainBackground = settings?.Value<IPublishedContent>("mainBackground").Url() ?? null;
 }
  
-<div id="contact-info-section">
-    @if (!string.IsNullOrEmpty(backgroundColorClass))
-    {
-    <div class="background @backgroundColorClass"></div>
-    }
+<div id="contact-info-section" class="background @backgroundColorClass">
     <div class="container">
         <div class="img-container">
             <img class="main-img" src="@mainBackground" alt="contact image">

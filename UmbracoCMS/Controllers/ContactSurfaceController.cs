@@ -20,20 +20,20 @@ namespace UmbracoCMS.Controllers
         {
             if (!ModelState.IsValid)
             {
-                TempData["name"] = form.Name;
-                TempData["phone"] = form.Phone;
-                TempData["email"] = form.Email;
-                TempData["service"] = form.Service;
+                ViewData["name"] = form.Name;
+                ViewData["phone"] = form.Phone;
+                ViewData["email"] = form.Email;
+                ViewData["service"] = form.Service;
 
-                TempData["error_name"] = string.IsNullOrEmpty(form.Name);
-                TempData["error_phone"] = string.IsNullOrEmpty(form.Phone);
-                TempData["error_email"] = string.IsNullOrEmpty(form.Email);
-                TempData["error_service"] = string.IsNullOrEmpty(form.Service);
+                ViewData["error_name"] = string.IsNullOrEmpty(form.Name);
+                ViewData["error_email"] = string.IsNullOrEmpty(form.Email);
+                ViewData["error_service"] = string.IsNullOrEmpty(form.Service);
 
                 return CurrentUmbracoPage();
             }
 
-            return RedirectToCurrentUmbracoPage();
+            ViewData["success"] = "Form submitted successfully";
+            return CurrentUmbracoPage();
         }
     }
 }

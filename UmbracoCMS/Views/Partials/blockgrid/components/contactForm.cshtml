@@ -8,38 +8,61 @@
     var text = Model?.Content.Value<string>("text");
     var buttonLabel = Model?.Content.Value<string>("buttonLabel");
 	var buttonBackgroundColor = Model?.Content?.Value<ColorPickerValueConverter.PickedColor>("buttonBackgroundColor")?.Label.ToLower() ?? null;
+
+    bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
 }
 
-
-<div class="text-content">
-    <span>@sectionTitle</span>
-    <h3>@headline</h3>
-    <p>@text</p>
-</div>
-
-@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+@if (sectionTitle == "")
 {
-    <form onsubmit="handleContactFormSubmit(event)" novalidate>
-
-        <div class="input-container">
-            <input id="name" name="name" type="text" placeholder="Name">
-            <input id="phone" name="phone" type="text" placeholder="Phone">
-
-            <input id="email" name="email" type="email" placeholder="Email address">
-            <select>
-                <option value="0">Select a service</option>
-                <option value="1">Service 1</option>
-                <option value="2">Service 2</option>
-                <option value="3">Service 3</option>
-            </select>
-        </div>
-
-        <button type="submit" class="btn btn-@buttonBackgroundColor">Send</button>
-    </form>
+     <h3>@headline</h3>
 }
 
+<div class="container">
+    <div class="text-content">
+        @if (sectionTitle != "")
+        {
+            <span>@sectionTitle</span>
+            <h3>@headline</h3>
+        }
+        <p>@text</p>
+    </div>
+    @if (ViewData["success"] != null)
+    {
+        <h4 class="success-message">@ViewData["success"]</h4>
+    }
+    else
+    {
+        @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+        {
+            <div class="contact-input">
+                <div class="input-container">
+                    <input id="name" name="name" type="text" placeholder="Name" value="@ViewData["name"]">
+                    <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">You much enter your name</span>
+                </div>
+                <div class="input-container">
+                    <input id="phone" name="phone" type="text" placeholder="Phone" value="@ViewData["phone"]">
+                </div>
+            </div>
+            <div class="contact-input">
+                  <div class="input-container">
+                    <input id="email" name="email" type="email" placeholder="Email address" value="@ViewData["email"]">
+                    <span class="form-input-error @((error_email) ? "form-invalid-input" : null)">You much enter your email</span>
+                </div>
+                <select id="service" name="service" value="@ViewData["service"]">
+                    <option value="0">Select a service</option>
+                    <option value="Risk management">Risk Management</option>
+                    <option value="Bonds & Commodities">Bonds & Commodities</option>
+                    <option value="Assurance & Audits">Assurance & Audits</option>
+                    <option value="Tax and Trusts">Tax and Trusts</option>
+                    <option value="Financial Advisor">Financial Advisor</option>
+                    <option value="Statistic Advisors">Statistic Advisors</option>
+                    <option value="Annual Reports">Annual Reports</option>
+                    <option value="Office Management">Office Management</option>
+                </select>
+            </div>
 
-
-
-
-	
+            <button type="submit" class="btn-@buttonBackgroundColor">Send</button>
+        }
+    }
+</div> 

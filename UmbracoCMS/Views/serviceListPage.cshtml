@@ -14,9 +14,9 @@
     var totalItems = selection?.Count() ?? 0;
     var pagedItems = selection?.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
 }
+    @await Html.PartialAsync("partials/static/breadcrumbsContainer.cshtml")
 
 <section id="services-section" class="service-services">
-    @await Html.PartialAsync("partials/static/breadcrumbsContainer.cshtml")
     <div class="container">
         
         @if (!string.IsNullOrEmpty(Model.Value("customHeadline").ToString()))

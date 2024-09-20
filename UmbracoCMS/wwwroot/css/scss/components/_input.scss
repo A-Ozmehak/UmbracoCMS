@@ -3,7 +3,6 @@
     input {
         width: 100%;
         padding: 10px;
-        margin-bottom: 10px;
         border: 1px solid var(--color-accent);
         border-radius: 2px;
 
@@ -17,20 +16,11 @@
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
-
-    .form-input-error {
-        display: none;
-    }
-        
-    .form-invalid-input {
-        color: red;
-    }
 }
 
 input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid var(--color-accent);
     border-radius: 2px;
 
@@ -38,3 +28,24 @@ input {
         font-style: italic;
     }
 }
+
+.success-message {
+    color: var(--color-secondary);
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+
+   
+}
+
+.form-input-error {
+    color: red;
+}
+
+.form-invalid-input {
+    color: red;
+}
+
+    

@@ -54,22 +54,27 @@
 
         @if (ViewData["success"] != null)
         {
-            <div class="success-message">@ViewData["success"]</div>
+            <h4 class="success-message">@ViewData["success"]</h4>
         }
         else
         {
             @using (Html.BeginUmbracoForm("HandleSubmit", "QuestionSurface", FormMethod.Post))
             {
                 <div class="input-container">
-                    <input id="name" name="name" type="text" placeholder="Name" value="@ViewData["name"]">
-                    <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">You much enter your name</span>
+                    <div class="input">
+                        <input id="name" name="name" type="text" placeholder="Name" value="@ViewData["name"]">
+                        <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">You much enter your name</span>
+                    </div>
+                    <div class="input">
+                        <input id="email" name="email" type="text" placeholder="Email" value="@ViewData["email"]">
+                        <span class="form-input-error @((error_email) ? "form-invalid-input" : null)">You much enter your email</span>
+                    </div>
 
-                    <input id="email" name="email" type="text" placeholder="Email" value="@ViewData["email"]">
-                    <span class="form-input-error @((error_email) ? "form-invalid-input" : null)">You much enter your email</span>
                 </div>
-                <textarea id="question" name="question" placeholder="Question" value="@ViewData["question"]"></textarea>
-                <span class="form-input-error @((error_question) ? "form-invalid-input" : null)">You much enter your question</span>
-
+                <div class="input">
+                    <textarea id="question" name="question" placeholder="Question" value="@ViewData["question"]"></textarea>
+                    <span class="form-input-error @((error_question) ? "form-invalid-input" : null)">You much enter your question</span>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             }
         }

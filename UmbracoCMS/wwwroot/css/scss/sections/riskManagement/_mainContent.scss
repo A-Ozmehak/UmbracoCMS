@@ -60,11 +60,13 @@
 .question-form {
     .container {
         form {
-            //width: 100%;
             margin-top: 50px;
 
-            input {
-                height: 38px;
+            .input-container {
+                input {
+                    height: 38px;
+                    margin-bottom: 20px;
+                }
             }
 
             textarea {
