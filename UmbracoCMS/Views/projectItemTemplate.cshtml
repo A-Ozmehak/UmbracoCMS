@@ -10,6 +10,14 @@
     var helpBoxText = Model?.Value<string>("helpBoxText") ?? "";
     var tagItems = Model?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("tagItems");      
     //var projects = Model?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("projects");
+    var selection = Umbraco.Content(Guid.Parse("117687d4-44f3-4ddb-8ed3-aacba5739ff5")).ChildrenOfType("projectItemTemplate").Where(x => x.IsVisible());
+
+    var itemsPerPage = 4;
+    if (!int.TryParse(Context.Request.Query["page"], out int currentPage))
+        currentPage = 1;
+    
+    var totalItems = selection?.Count() ?? 0;
+    var pagedItems = selection?.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
@@ -23,7 +31,27 @@
         <div class="side-container">
             <h4>@sidebarTitle</h4>
             <div class="project">
-         
+            @if (pagedItems != null) {
+
+                @foreach (var item in pagedItems)
+                {
+                    var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+                    var projectTitle = item?.Value<string>("projectTitle") ?? "";
+                    var date = item?.Value<string>("date") ?? "";
+                    var preamble = item?.Value<string>("preamble") ?? "";
+
+                    <a href="@item!.Url()">
+                        <div class="project-container">
+                            <img src="@image" alt="@item.Name()" >
+                            <div class="project-info">
+                                <h5>@item.Name()</h5>
+                                <p class="date"><i class="fa-solid fa-calendar-days"></i> @date</p>
+                            </div>
+                        </div>
+                        
+                    </a>
+                }  
+            }
            
             </div>
             @if (tagItems != null) 

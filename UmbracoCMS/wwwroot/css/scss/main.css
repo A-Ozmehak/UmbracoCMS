@@ -286,6 +286,7 @@ select {
 
 .tags-container {
   margin-top: 30px;
+  margin-bottom: 20px;
   width: 100%;
 }
 @media (min-width: 1400px) {
@@ -1330,53 +1331,47 @@ footer {
   margin-right: 8px;
 }
 @media (min-width: 1400px) {
-  .project-details .container .side-content {
+  .project-details .container .side-container {
     border-left: 1px solid var(--color-secondary);
     padding: 20px;
   }
 }
-.project-details .container .side-content .recent-projects {
+.project-details .container .side-container .project {
   margin-top: 20px;
 }
 @media (min-width: 1400px) {
-  .project-details .container .side-content .recent-projects {
+  .project-details .container .side-container .project {
     margin-top: 0;
   }
 }
-.project-details .container .side-content .recent-projects .project {
+.project-details .container .side-container .project .project-container {
   display: flex;
 }
-@media (min-width: 1400px) {
-  .project-details .container .side-content .recent-projects .project {
-    width: 300px;
-    height: 98px;
-  }
-}
-.project-details .container .side-content .recent-projects .project img {
+.project-details .container .side-container .project .project-container img {
   width: 50%;
   margin-bottom: 10px;
   margin-right: 10px;
 }
 @media (min-width: 1400px) {
-  .project-details .container .side-content .recent-projects .project img {
-    width: 130px;
+  .project-details .container .side-container .project .project-container img {
+    width: 100px;
     height: 82px;
     margin-right: 10px;
     object-fit: cover;
   }
 }
-.project-details .container .side-content .recent-projects .project .project-info {
+.project-details .container .side-container .project .project-container .project-info {
   width: 50%;
 }
 @media (min-width: 1400px) {
-  .project-details .container .side-content .recent-projects .project .project-info {
+  .project-details .container .side-container .project .project-container .project-info {
     width: 170px;
   }
 }
-.project-details .container .side-content .recent-projects .project .project-info h5 {
+.project-details .container .side-container .project .project-container .project-info h5 {
   font-size: 14px;
 }
-.project-details .container .side-content .tags-container {
+.project-details .container .tags-container {
   border-left: none;
 }
 

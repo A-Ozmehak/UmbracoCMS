@@ -12,10 +12,12 @@
             grid-template-columns: auto 1fr;
             gap: 50px;
         }
+
         .project-info {
 
             .date {
                 opacity: 0.6;
+
                 i {
                     margin-right: 5px;
                 }
@@ -65,42 +67,38 @@
             }
         }
 
-        .side-content {
+        .side-container {
             @include desktop {
                 border-left: 1px solid var(--color-secondary);
                 padding: 20px;
             }
-            .recent-projects {
+
+            .project {
                 margin-top: 20px;
 
                 @include desktop {
                     margin-top: 0;
                 }
 
-                .project {
+                .project-container {
                     display: flex;
 
-                    @include desktop {
-                        width: 300px;
-                        height: 98px;  
-                    }
+                     img {
+                          width: 50%;
+                          margin-bottom: 10px;
+                          margin-right: 10px;
 
-                    img {
-                        width: 50%;
-                        margin-bottom: 10px;
-                        margin-right: 10px;
-
-                        @include desktop {
-                            width: 130px;
-                            height: 82px;
-                            margin-right: 10px;
-                            object-fit: cover;
-                        }
-                    }
+                          @include desktop {
+                              width: 100px;
+                              height: 82px;
+                              margin-right: 10px;
+                              object-fit: cover;
+                          }
+                     }
 
                     .project-info {
                         width: 50%;
-                        
+
                         @include desktop {
                             width: 170px;
                         }
@@ -111,10 +109,11 @@
                     }
                 }
             }
+        }
 
-            .tags-container {
-                border-left: none;
-            }
+        .tags-container {
+            border-left: none;
         }
     }
 }
+
