@@ -11,6 +11,9 @@
 
     bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
     bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+    bool.TryParse(ViewData["error_service"]?.ToString()!, out bool error_service);
+
+   
 }
 
 @if (sectionTitle == "")
@@ -33,12 +36,14 @@
     }
     else
     {
-        @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+        @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post, new { id = "contactForm" }))
         {
             <div class="contact-input">
                 <div class="input-container">
                     <input id="name" name="name" type="text" placeholder="Name" value="@ViewData["name"]">
-                    <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">You much enter your name</span>
+                    <span id="errorName" style="color:red; display:@(error_name ? "block" : "none");">
+                        Name is required.
+                    </span>
                 </div>
                 <div class="input-container">
                     <input id="phone" name="phone" type="text" placeholder="Phone" value="@ViewData["phone"]">
@@ -47,10 +52,12 @@
             <div class="contact-input">
                   <div class="input-container">
                     <input id="email" name="email" type="email" placeholder="Email address" value="@ViewData["email"]">
-                    <span class="form-input-error @((error_email) ? "form-invalid-input" : null)">You much enter your email</span>
+                    <span id="errorEmail" style="color:red; display:@(error_email ? "block" : "none");">
+                        Email is required.
+                    </span>
                 </div>
                 <select id="service" name="service" value="@ViewData["service"]">
-                    <option value="0">Select a service</option>
+                    <option value="">Select a Service</option>
                     <option value="Risk management">Risk Management</option>
                     <option value="Bonds & Commodities">Bonds & Commodities</option>
                     <option value="Assurance & Audits">Assurance & Audits</option>
@@ -60,6 +67,9 @@
                     <option value="Annual Reports">Annual Reports</option>
                     <option value="Office Management">Office Management</option>
                 </select>
+                <span id="errorService" style="color:red; display:@(error_service ? "block" : "none");">
+                    Service is required.
+                </span>
             </div>
 
             <button type="submit" class="btn-@buttonBackgroundColor">Send</button>

@@ -37,7 +37,7 @@
                 top: -40%;
                 left: 60%;
                 background-color: var(--color-light);
-                height: 572px;
+                height: 620px;
                 width: 470px;
             }
 
@@ -47,7 +47,7 @@
             }
 
             p {
-                padding: 20px 20px 0 20px;
+                padding: 20px 20px 10px 20px;
                 font-style: italic;
             }
 
@@ -63,19 +63,18 @@
                     .input-container {
                         display: flex;
                         flex-direction: column;
+                    }
 
-                        input {
-                            margin-top: 10px;
-                        }
-
-                        .form-input-error {
-                            //display: none;
-                            color: red;
-                        }
+                    #phone {
+                        margin-bottom: 10px;
                     }
 
                     select {
-                        margin-bottom: 20px;
+                        margin-bottom: 5px;
+                    }
+
+                    span {
+                        margin-bottom: 10px;
                     }
                 }
             }

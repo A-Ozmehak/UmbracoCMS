@@ -213,7 +213,6 @@ h6 {
 
 input {
   width: 100%;
-  padding: 10px;
   border: 1px solid var(--color-accent);
   border-radius: 2px;
 }
@@ -228,14 +227,6 @@ input::placeholder {
 .input {
   display: flex;
   flex-direction: column;
-}
-
-.form-input-error {
-  color: red;
-}
-
-.form-invalid-input {
-  color: red;
 }
 
 select {
@@ -672,7 +663,7 @@ header .container .search {
     top: -40%;
     left: 60%;
     background-color: var(--color-light);
-    height: 572px;
+    height: 620px;
     width: 470px;
   }
 }
@@ -681,7 +672,7 @@ header .container .search {
   padding: 30px 20px;
 }
 #about-section .container #request-form p {
-  padding: 20px 20px 0 20px;
+  padding: 20px 20px 10px 20px;
   font-style: italic;
 }
 #about-section .container #request-form .container {
@@ -697,14 +688,14 @@ header .container .search {
   display: flex;
   flex-direction: column;
 }
-#about-section .container #request-form .container form .input-container input {
-  margin-top: 10px;
-}
-#about-section .container #request-form .container form .input-container .form-input-error {
-  color: red;
+#about-section .container #request-form .container form #phone {
+  margin-bottom: 10px;
 }
 #about-section .container #request-form .container form select {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+}
+#about-section .container #request-form .container form span {
+  margin-bottom: 10px;
 }
 
 #story-section {

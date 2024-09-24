@@ -16,11 +16,10 @@
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
-}
+} 
 
 input {
     width: 100%;
-    padding: 10px;
     border: 1px solid var(--color-accent);
     border-radius: 2px;
 
@@ -36,16 +35,6 @@ input {
 .input {
     display: flex;
     flex-direction: column;
-
-   
-}
-
-.form-input-error {
-    color: red;
-}
-
-.form-invalid-input {
-    color: red;
 }
 
     

@@ -62,18 +62,24 @@
             {
                 <div class="input-container">
                     <div class="input">
-                        <input id="name" name="name" type="text" placeholder="Name" value="@ViewData["name"]">
-                        <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">You much enter your name</span>
+                        <input id="questionName" name="name" type="text" placeholder="Name" value="@ViewData["name"]">
+                        <span id="questionErrorName" style="color:red; display:@(error_name ? "block" : "none");">
+                            Name is required.
+                        </span>
                     </div>
                     <div class="input">
-                        <input id="email" name="email" type="text" placeholder="Email" value="@ViewData["email"]">
-                        <span class="form-input-error @((error_email) ? "form-invalid-input" : null)">You much enter your email</span>
+                        <input id="questionEmail" name="email" type="text" placeholder="Email" value="@ViewData["email"]">
+                        <span id="questionErrorEmail" style="color:red; display:@(error_email ? "block" : "none");">
+                            Email is required.
+                        </span>
                     </div>
 
                 </div>
                 <div class="input">
-                    <textarea id="question" name="question" placeholder="Question" value="@ViewData["question"]"></textarea>
-                    <span class="form-input-error @((error_question) ? "form-invalid-input" : null)">You much enter your question</span>
+                    <textarea id="questionQuestion" name="question" placeholder="Question" value="@ViewData["question"]"></textarea>
+                    <span id="questionErrorQuestion" style="color:red; display:@(error_question ? "block" : "none");">
+                        Question is required.
+                    </span>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             }
