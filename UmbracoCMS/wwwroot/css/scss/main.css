@@ -664,7 +664,7 @@ header .container .search {
     top: -40%;
     left: 60%;
     background-color: var(--color-light);
-    height: 620px;
+    height: 630px;
     width: 470px;
   }
 }
@@ -675,6 +675,7 @@ header .container .search {
 #about-section .container #request-form p {
   padding: 20px 20px 10px 20px;
   font-style: italic;
+  font-size: 14px;
 }
 #about-section .container #request-form .container {
   display: flex;
@@ -688,15 +689,10 @@ header .container .search {
 #about-section .container #request-form .container form .input-container {
   display: flex;
   flex-direction: column;
-}
-#about-section .container #request-form .container form #phone {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 #about-section .container #request-form .container form select {
-  margin-bottom: 5px;
-}
-#about-section .container #request-form .container form span {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 #story-section {
@@ -803,6 +799,7 @@ header .container .search {
 #success-stories-section .container .story-numbers .numbers-box h2 {
   color: var(--color-secondary);
   margin-bottom: 0;
+  font-size: 80px;
 }
 #success-stories-section .container .story-numbers .numbers-box p {
   color: var(--color-light);
@@ -831,7 +828,9 @@ header .container .search {
 #our-projects-section .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+#our-projects-section .container h3 {
+  color: var(--color-primary);
 }
 #our-projects-section .projects {
   display: flex;
@@ -851,6 +850,7 @@ header .container .search {
 }
 #our-projects-section .projects .project-container {
   position: relative;
+  height: 480px;
 }
 @media (min-width: 768px) {
   #our-projects-section .projects .project-container {
@@ -862,6 +862,7 @@ header .container .search {
   width: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  height: 480px;
 }
 #our-projects-section .projects .project-container .project-info {
   width: 100%;
@@ -928,6 +929,8 @@ footer {
 }
 #company-info-section .container .content .text-content .quote {
   font-style: italic;
+  color: var(--color-primary);
+  font-size: 16px;
 }
 #company-info-section .container .content .text-content p {
   font-size: 14px;
@@ -1020,17 +1023,13 @@ footer {
   margin-bottom: 10px;
   border: 1px solid var(--color-accent);
 }
-@media (min-width: 1400px) {
-  #experts-section .container .experts .expert-info {
-    height: 462px;
-  }
-}
 #experts-section .container .experts .expert-info .text-content {
   padding: 15px 20px;
 }
 #experts-section .container .experts .expert-info .text-content .name {
   font-weight: 700;
   padding-bottom: 0;
+  font-size: 20px;
 }
 #experts-section .container .experts .expert-info .text-content .role {
   color: var(--color-primary-light);
@@ -1070,7 +1069,7 @@ footer {
   margin-bottom: 20px;
   width: 100%;
   text-decoration: none;
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #EAEAEA;
 }
 @media (min-width: 1400px) {
   #services-section .container .services .service-card {
@@ -1109,6 +1108,19 @@ footer {
   border-radius: 50%;
   color: var(--color-primary);
 }
+.pagination .container li:hover {
+  background: var(--color-primary);
+}
+.pagination .container li:hover a {
+  color: var(--color-secondary);
+}
+.pagination .container li a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.pagination .container li a:hover {
+  text-decoration: underline;
+}
 .pagination .container .pages {
   display: flex;
   list-style: none;
@@ -1124,6 +1136,9 @@ footer {
 }
 .pagination .container .change {
   color: var(--color-primary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .service-details {
@@ -1166,13 +1181,9 @@ footer {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-top: 20px;
-}
-@media (min-width: 1400px) {
-  .service-details .container .side-container {
-    width: 348px;
-  }
+  border-right: 1px solid #EAEAEA;
+  padding-right: 25px;
 }
 .service-details .container .side-container img {
   width: 50%;
@@ -1182,6 +1193,12 @@ footer {
   .service-details .container .side-container img {
     width: 100%;
   }
+}
+.service-details .container .side-container .bottom-content {
+  width: 100%;
+}
+.service-details .container .side-container .bottom-content .input-container {
+  margin-top: 25px;
 }
 
 .question-form .container form {
@@ -1270,8 +1287,12 @@ footer {
 }
 @media (min-width: 1400px) {
   .our-projects-container .container .side-container {
-    width: 336px;
+    border-left: 1px solid #EAEAEA;
+    padding-left: 20px;
   }
+}
+.our-projects-container .container .side-container .bottom-content .input-container {
+  margin-top: 25px;
 }
 
 .project-details {
@@ -1316,9 +1337,11 @@ footer {
 }
 .project-details .container .project-info .project-tags {
   display: flex;
+  margin-top: 20px;
 }
 .project-details .container .project-info .project-tags p {
   margin-right: 10px;
+  font-weight: 600;
 }
 .project-details .container .project-info .project-tags a {
   border: 1px solid var(--color-secondary);
@@ -1370,6 +1393,14 @@ footer {
 }
 .project-details .container .side-container .project .project-container .project-info h5 {
   font-size: 14px;
+  text-decoration: none;
+}
+.project-details .container .side-container .project .project-container .project-info .date {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.project-details .container .side-container .bottom-content .input-container {
+  margin-top: 25px;
 }
 .project-details .container .tags-container {
   border-left: none;
@@ -1462,12 +1493,10 @@ footer {
 @media (min-width: 1400px) {
   #map-container .container form .contact-input {
     grid-template-columns: 1fr 1fr;
+    margin-bottom: 20px;
   }
 }
 #map-container .container form .contact-input .input-container {
   display: flex;
   flex-direction: column;
-}
-#map-container .container form button {
-  margin-top: 20px;
 }

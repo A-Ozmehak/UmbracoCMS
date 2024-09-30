@@ -8,7 +8,10 @@
     .container {
         display: flex;
         flex-direction: column;
-        align-items: center;
+
+        h3 {
+            color: var(--color-primary);
+        }
     }
 
     .projects {
@@ -27,6 +30,7 @@
 
         .project-container {
             position: relative;
+            height: 480px;
 
             @include tablet {
                 margin-bottom: 0;
@@ -37,6 +41,7 @@
                 width: 100%;
                 object-fit: cover;
                 transition: transform 0.3s ease;
+                height: 480px;
             }
 
             .project-info {

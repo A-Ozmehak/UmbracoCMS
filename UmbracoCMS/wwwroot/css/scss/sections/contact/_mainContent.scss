@@ -85,16 +85,13 @@
 
                 @include desktop {
                     grid-template-columns: 1fr 1fr;
+                    margin-bottom: 20px;
                 }
 
                 .input-container {
                     display: flex;
                     flex-direction: column;
                 }
-            }
-
-            button {
-                margin-top: 20px;
             }
         }
     }

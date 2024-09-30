@@ -32,7 +32,7 @@
                 margin-bottom: 20px;
                 width: 100%;
                 text-decoration: none;
-                box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+                border: 1px solid #EAEAEA;
 
                 @include desktop {
                     width: 370px;
@@ -78,6 +78,23 @@
             padding: 10px 17px;
             border-radius: 50%;
             color: var(--color-primary);
+
+            &:hover {
+                background: var(--color-primary);
+            }
+
+            &:hover a {
+                color: var(--color-secondary);
+            }
+
+            a {
+                color: var(--color-primary);
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
 
         .pages {
@@ -98,6 +115,9 @@
 
         .change {
             color: var(--color-primary);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
         }
     }
 }

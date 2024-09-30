@@ -76,7 +76,14 @@
             width: 100%;
 
             @include desktop {
-                width: 336px;
+                border-left: 1px solid #EAEAEA;
+                padding-left: 20px;
+            }
+
+            .bottom-content {
+                .input-container {
+                    margin-top: 25px;
+                }
             }
         }
     }

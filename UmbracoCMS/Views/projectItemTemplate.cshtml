@@ -57,6 +57,7 @@
             @if (tagItems != null) 
             {
                 <div class="tags-container">
+                    <h4>Tags</h4>
                 @foreach (var item in tagItems)
                 {
                     var tagName = item?.Content.Value<string>("tagName");
