@@ -64,8 +64,10 @@
                 opacity: 1;
             }
 
-            &:hover img {
-                transform: scale(1.1);
+            @include desktop {
+                &:hover img {
+                    transform: scale(1.1);
+                }
             }
         }
     }

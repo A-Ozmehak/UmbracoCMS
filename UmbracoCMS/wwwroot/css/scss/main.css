@@ -627,6 +627,7 @@ header .container .search {
 }
 
 #about-section {
+  padding-bottom: 20px;
   margin-bottom: 50px;
 }
 @media (min-width: 1400px) {
@@ -799,7 +800,11 @@ header .container .search {
 #success-stories-section .container .story-numbers .numbers-box h2 {
   color: var(--color-secondary);
   margin-bottom: 0;
-  font-size: 80px;
+}
+@media (min-width: 1400px) {
+  #success-stories-section .container .story-numbers .numbers-box h2 {
+    font-size: 80px;
+  }
 }
 #success-stories-section .container .story-numbers .numbers-box p {
   color: var(--color-light);
@@ -881,8 +886,10 @@ header .container .search {
 #our-projects-section .projects .project-container:hover .project-info {
   opacity: 1;
 }
-#our-projects-section .projects .project-container:hover img {
-  transform: scale(1.1);
+@media (min-width: 1400px) {
+  #our-projects-section .projects .project-container:hover img {
+    transform: scale(1.1);
+  }
 }
 
 footer {
@@ -1088,10 +1095,14 @@ footer {
 #services-section .container .services .service-card img {
   width: 100%;
   height: auto;
-  transition: transform 0.3s ease;
 }
-#services-section .container .services .service-card img:hover {
-  transform: scale(1.1);
+@media (min-width: 1400px) {
+  #services-section .container .services .service-card img {
+    transition: transform 0.3s ease;
+  }
+  #services-section .container .services .service-card img:hover {
+    transform: scale(1.1);
+  }
 }
 #services-section .container .services .service-card p {
   margin-top: 10px;
@@ -1201,8 +1212,21 @@ footer {
   margin-top: 25px;
 }
 
+.question-form {
+  margin-top: 40px;
+}
+@media (min-width: 1400px) {
+  .question-form {
+    margin-top: 0;
+  }
+}
 .question-form .container form {
-  margin-top: 50px;
+  margin-top: 20px;
+}
+@media (min-width: 1400px) {
+  .question-form .container form {
+    margin-top: 50px;
+  }
 }
 .question-form .container form .input-container input {
   height: 38px;
@@ -1283,10 +1307,11 @@ footer {
   margin-left: 5px;
 }
 .our-projects-container .container .side-container {
-  width: 100%;
+  display: none;
 }
 @media (min-width: 1400px) {
   .our-projects-container .container .side-container {
+    display: block;
     border-left: 1px solid #EAEAEA;
     padding-left: 20px;
   }

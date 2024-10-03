@@ -73,9 +73,10 @@
         }
 
         .side-container {
-            width: 100%;
+            display: none;
 
             @include desktop {
+                display: block;
                 border-left: 1px solid #EAEAEA;
                 padding-left: 20px;
             }

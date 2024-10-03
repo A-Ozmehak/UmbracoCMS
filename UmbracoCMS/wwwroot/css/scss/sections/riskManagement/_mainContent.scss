@@ -63,9 +63,19 @@
 }
 
 .question-form {
+    margin-top: 40px;
+
+    @include desktop {
+        margin-top: 0;
+    }
+
     .container {
         form {
-            margin-top: 50px;
+            margin-top: 20px;
+
+            @include desktop {
+                margin-top: 50px;
+            }
 
             .input-container {
                 input {
